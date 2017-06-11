@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<title>键盘记录器</title>
+		<style>
+			.nav{
+				list-style: none;
+				overflow: hidden;
+			}
+			.nav li{
+				width: 30px;
+				float: left;
+				background: #ddd;
+				height: 30px;
+				border: 1px solid yellow;
+				margin: 0 4px;
+				cursor: pointer;
+			}
+			.nav li input{
+				border: none;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				background: transparent;
+				cursor: pointer;
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" value="" id="text"/>
+		<ul class="nav">
+			<li>
+				<input value="0" type="button"/>
+			</li>
+			<li>
+				<input value="1" type="button"/>
+			</li>
+			<li>
+				<input value="2" type="button"/>
+			</li>
+			<li>
+				<input value="3" type="button"/>
+			</li>
+			<li>
+				<input value="4" type="button"/>
+			</li>
+			<li>
+				<input value="5" type="button"/>
+			</li>
+			<li>
+				<input value="6" type="button"/>
+			</li>
+			<li>
+				<input value="7" type="button" />
+			</li>
+			<li>
+				<input value="8" type="button"/>
+			</li>
+			<li>
+				<input value="9" type="button"/>
+			</li>
+		</ul>
+	</body>
+	<script>
+		$(function(){
+			var $navli=$(".nav li");
+			var $input=$(".nav li input");
+			var $text=$("#text");
+			$navli.click(function(){
+//				console.log($navli.length)
+					//获取点击事件的li的索引值
+				var index=$(this).index();
+				//获取每次点击input的val值
+				var val=$input.eq(index).val();
+//				console.log(index,"val值"+val);
+//				console.log($text.val())
+				//把获取的val赋予给#text
+				$text.val(val);
+				console.log($text)							
+			})
+		})
+	</script>
+</html>
